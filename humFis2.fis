@@ -1,0 +1,69 @@
+[System]
+Name='humFis2'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=25
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='tempPrev'
+Range=[-12 73]
+NumMFs=5
+MF1='vc':'trimf',[-12 -12 17.48]
+MF2='co':'trimf',[0.7957 17.48 34.16]
+MF3='cf':'trimf',[17.48 34.16 50.84]
+MF4='ho':'trimf',[34.16 50.84 67.52]
+MF5='mf5':'trimf',[50.84 73 73]
+
+[Input2]
+Name='tempNext'
+Range=[-12 73]
+NumMFs=5
+MF1='vc1':'trimf',[-12 -12 17.48]
+MF2='co1':'trimf',[0.7957 17.48 34.16]
+MF3='mf3':'trimf',[17.48 34.16 50.84]
+MF4='mf4':'trimf',[34.16 50.84 67.52]
+MF5='mf5':'trimf',[50.84 73 73]
+
+[Output1]
+Name='change'
+Range=[-1 1]
+NumMFs=5
+MF1='NB':'trimf',[-1000 -0.6 -0.3]
+MF2='NS':'trimf',[-0.6 -0.3 0]
+MF3='ZE':'trimf',[-0.3 0 0.3]
+MF4='PS':'trimf',[0 0.3 0.6]
+MF5='PB':'trimf',[0.3 0.6 1000]
+
+[Rules]
+1 1, 3 (1) : 1
+1 2, 2 (1) : 1
+1 3, 1 (1) : 1
+1 4, 3 (1) : 1
+1 5, 5 (1) : 1
+2 1, 4 (1) : 1
+2 2, 3 (1) : 1
+2 3, 2 (1) : 1
+2 4, 4 (1) : 1
+2 5, 5 (1) : 1
+3 1, 5 (1) : 1
+3 2, 4 (1) : 1
+3 3, 3 (1) : 1
+3 4, 4 (1) : 1
+3 5, 5 (1) : 1
+4 1, 3 (1) : 1
+4 2, 2 (1) : 1
+4 3, 1 (1) : 1
+4 4, 3 (1) : 1
+4 5, 5 (1) : 1
+5 1, 1 (1) : 1
+5 2, 1 (1) : 1
+5 3, 1 (1) : 1
+5 4, 1 (1) : 1
+5 5, 3 (1) : 1
